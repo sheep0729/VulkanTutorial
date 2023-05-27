@@ -1,4 +1,4 @@
-#define GLFW_INCLUDE_VULKAN
+#define GLFW_INCLUDE_VULKAN // GLFW 会 include 自己的定义，也会 #include <vulkan/vulkan.h>
 #include <GLFW/glfw3.h>
 
 #include <iostream>
@@ -21,10 +21,10 @@ private:
     GLFWwindow* window;
 
     void initWindow() {
-        glfwInit();
+        glfwInit(); // 初始化 GLFW library
 
-        glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-        glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+        glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API); // 不要创建 OpenGL 的上下文
+        glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE); // 禁用调整窗口大小
 
         window = glfwCreateWindow(WIDTH, HEIGHT, "Vulkan", nullptr, nullptr);
     }
@@ -35,7 +35,7 @@ private:
 
     void mainLoop() {
         while (!glfwWindowShouldClose(window)) {
-            glfwPollEvents();
+            glfwPollEvents(); // 检查 Event
         }
     }
 
@@ -47,7 +47,7 @@ private:
 };
 
 int main() {
-    HelloTriangleApplication app;
+    HelloTriangleApplication app{};
 
     try {
         app.run();
