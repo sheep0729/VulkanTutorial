@@ -1,4 +1,4 @@
-#define GLFW_INCLUDE_VULKAN // GLFW 会 include 自己的定义，也会 #include <vulkan/vulkan.h>
+﻿#define GLFW_INCLUDE_VULKAN // GLFW 会 include 自己的定义，也会 #include <vulkan/vulkan.h>
 #include <GLFW/glfw3.h>
 
 #include <iostream>
@@ -30,7 +30,8 @@ private:
     }
 
     void initVulkan() {
-
+        // vkCreateXXX
+        // vkAllocateXXX
     }
 
     void mainLoop() {
@@ -40,8 +41,10 @@ private:
     }
 
     void cleanup() {
-        glfwDestroyWindow(window);
+        // vkDestroyXXX
+        // vkFreeXXX
 
+        glfwDestroyWindow(window);
         glfwTerminate();
     }
 };
